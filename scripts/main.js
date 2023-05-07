@@ -11,15 +11,17 @@ mc.world.events.beforeChat.subscribe((events) => {
     if (!message.startsWith(`${prefix}${key}`))
         return;
     events.cancel = true;
-    doMove(player, () => tranfer(player));
+    doMove(player, () => transfer(player));
 });
-function tranfer(player: mc.Player) {
-    const all_player = mc.world.getAllPlayers();
+function transfer_free(player: mc.Player) {
+    const all_player = mc.world.getAllPlayers().filter((target) => target.id !== player.id);
+    if (all_player.length === 0)
+        return player.sendMessage('§c>>§r There is no player online');
     const money = getScore('money', player);
     const from = new fm.ModalFormData();
-    from.title('Tranfer Money');
-    from.dropdown(`§c»§r Select Player`, all_player.map((player) => player.name));
-    from.slider(`§e»§r Select Money`, 1, money, 1);
+    from.title('Transfer Money');
+    from.dropdown(`§6»§r Select Player`, all_player.map((player) => player.name));
+    from.slider(`§d»§r Select Money`, 1, money, 1);
     from.show(player).then(({ formValues, canceled }) => {
         if (canceled)
             return;
