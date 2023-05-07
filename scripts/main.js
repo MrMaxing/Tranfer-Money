@@ -11,29 +11,25 @@ mc.world.events.beforeChat.subscribe((events) => {
     events.cancel = true;
     doMove(player, () => tranfer(player));
 });
-function tranfer(player) {
+function tranfer(player: mc.Player) {
     const all_player = mc.world.getAllPlayers();
-    const money = getScore(objective, player);
+    const money = getScore('money', player);
     const from = new fm.ModalFormData();
     from.title('Tranfer Money');
-    from.textField('Enter Player Name', 'example: Steve');
-    from.textField('Enter Money', 'example: 100');
+    from.dropdown(`§c»§r Select Player`, all_player.map((player) => player.name));
+    from.slider(`§e»§r Select Money`, 1, money, 1);
     from.show(player).then(({ formValues, canceled }) => {
         if (canceled)
             return;
-        const target = all_player.find((player) => player.name === formValues[0]);
-        const moneyResult = parseInt(formValues[1]);
-        if (!target)
-            return player.sendMessage('§c>>§r Player not found');
-        if (isNaN(moneyResult))
-            return player.sendMessage('§c>>§r Money must be a number');
+        const target = all_player[formValues[0]];
+        const moneyResult = formValues[1];
         if (moneyResult > money)
             return player.sendMessage('§c>>§r You don\'t have enough money');
-        if (moneyResult < 0)
+        if (moneyResult < 1)
             return player.sendMessage('§c>>§r You can\'t send negative money');
+        player.runCommandAsync(`scoreboard players remove @s money ${moneyResult}`);
         target.runCommandAsync(`scoreboard players add @s money ${moneyResult}`);
         player.sendMessage(`§a>>§r You have sent ${moneyResult} to ${target.name}`);
-        player.runCommandAsync(`scoreboard players remove @s money ${moneyResult}`);
         target.sendMessage(`§a>>§r You have received ${moneyResult} from ${player.name}`);
-    });
+    })
 }
