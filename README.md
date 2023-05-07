@@ -27,7 +27,7 @@ Add the add-in to your world. Later, you can open the UI by typing in the chat b
 <img src="https://raw.githubusercontent.com/MrMaxing/Data-Of-Readme/main/Tranfer%20Money/ui.png" width="300">
 </p>
 
-Then you walk, the ui will come up. When you see the ui, you will see that the first box is the name of the player who wants to transfer money. The next field is the amount to be filled in, the player name and the maximum available amount must be entered correctly. to be able to transfer money.
+Then when you walk, the UI will come up. When you see the ui, you will see that the first field is the name of the player who wants to transfer money. Next is the amount that must be selected. There will be approximately this.
 
 If you don't understand, [watch this clip.](https://youtu.be/URjFtra0yB4)
 
