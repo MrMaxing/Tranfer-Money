@@ -19,7 +19,7 @@ const objective = '<enter objective>';
 Add the add-in to your world. Later, you can open the UI by typing in the chat box 
 ```js
 //chat box in world
-!transfer
+!pay
 ```
 
 
