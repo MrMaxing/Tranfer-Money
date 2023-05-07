@@ -11,7 +11,7 @@
 The Minecraft scoreboard money transfer add-on is a tool that allows players to transfer virtual currency using the scoreboard system in Minecraft
 
 # How to Use
-Very easy! First of all, when you download it, the objective name in the default value is "money". You can edit the Score objective by editing it in the main.js file located at scripts/main.js Once you go into the file edit line 5, for example:
+Very easy! First of all, when you download it, the objective name in the default value is `money`. You can edit the Score objective by editing it in the main.js file located at `scripts/main.js` Once you go into the file edit line 5, for example:
 ```js
 //example const objective = 'money';
 const objective = '<enter objective>';
