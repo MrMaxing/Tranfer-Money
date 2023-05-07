@@ -1,6 +1,8 @@
 import * as mc from '@minecraft/server';
 import * as fm from '@minecraft/server-ui';
 import { getScore, doMove } from './server/library.api';
+// Objective to transfer money
+const objective = 'money';
 mc.world.events.beforeChat.subscribe((events) => {
     const player = events.sender;
     const message = events.message;
@@ -11,7 +13,7 @@ mc.world.events.beforeChat.subscribe((events) => {
 });
 function tranfer(player) {
     const all_player = mc.world.getAllPlayers();
-    const money = getScore('money', player);
+    const money = getScore(objective, player);
     const from = new fm.ModalFormData();
     from.title('Tranfer Money');
     from.textField('Enter Player Name', 'example: Steve');
@@ -23,6 +25,8 @@ function tranfer(player) {
         const moneyResult = parseInt(formValues[1]);
         if (!target)
             return player.sendMessage('§c>>§r Player not found');
+        if (isNaN(moneyResult))
+            return player.sendMessage('§c>>§r Money must be a number');
         if (moneyResult > money)
             return player.sendMessage('§c>>§r You don\'t have enough money');
         if (moneyResult < 0)
