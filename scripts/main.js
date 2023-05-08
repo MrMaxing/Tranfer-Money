@@ -5,6 +5,7 @@ import { getScore, doMove } from './server/library.api';
 const objective = 'money';
 const prefix = '!'
 const key = 'pay'
+mc.system.events.beforeWatchdogTerminate.subscribe(event => event.cancel = true)
 mc.world.events.beforeChat.subscribe((events) => {
     const player = events.sender;
     const message = events.message;
