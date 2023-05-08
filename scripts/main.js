@@ -13,11 +13,11 @@ mc.world.events.beforeChat.subscribe((events) => {
     events.cancel = true;
     doMove(player, () => transfer(player));
 });
-function transfer_free(player: mc.Player) {
+function transfer(player) {
     const all_player = mc.world.getAllPlayers().filter((target) => target.id !== player.id);
     if (all_player.length === 0)
         return player.sendMessage('§c>>§r There is no player online');
-    const money = getScore('money', player);
+    const money = getScore(objective, player);
     const from = new fm.ModalFormData();
     from.title('Transfer Money');
     from.dropdown(`§6»§r Select Player`, all_player.map((player) => player.name));
