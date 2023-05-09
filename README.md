@@ -29,7 +29,7 @@ Add the add-in to your world. Later, you can open the UI by typing in the chat b
 
 Then when you walk, the UI will come up. When you see the ui, you will see that the first field is the name of the player who wants to transfer money. Next is the amount that must be selected. There will be approximately this.
 
-If you don't understand, [watch this clip.](https://youtu.be/URjFtra0yB4)
+If you don't understand, [watch this clip.](https://youtu.be/URjFtra0yB4) 
 
 # Creidt
 
