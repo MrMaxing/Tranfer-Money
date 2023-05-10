@@ -37,4 +37,4 @@ Addon Create by Mr Maxing
 [Youtube](https://www.youtube.com/@MrMaxing)
 [Github](https://github.com/MrMaxing)
 
- Thank you for choosing the Unicode Chat Rank Addon! We hope you enjoy using the unique Unicode characters and emojis to make your chat messages stand out and express yourself in fun new ways. 💫👏
+Thank you for choosing the Transfer Money add-on! We hope you enjoy using the fun money transfer ui 💫👏
