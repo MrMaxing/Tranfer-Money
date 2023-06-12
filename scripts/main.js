@@ -6,13 +6,13 @@ const objective = 'money';
 const prefix = '!'
 const key = 'pay'
 mc.system.events.beforeWatchdogTerminate.subscribe(event => event.cancel = true)
-mc.world.events.beforeChat.subscribe((events) => {
+mc.world.beforeEvents.chatSend.subscribe((events) => {
     const player = events.sender;
     const message = events.message;
     if (!message.startsWith(`${prefix}${key}`))
         return;
     events.cancel = true;
-    doMove(player, () => transfer(player));
+    mc.system.run(() => doMove(player, () => transfer(player)));
 });
 function transfer(player) {
     const all_player = mc.world.getAllPlayers().filter((target) => target.id !== player.id);
